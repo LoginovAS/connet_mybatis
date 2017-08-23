@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Node implements Serializable {
 
-    private long nodeId;
+    private int nodeId;
 
     private String nodeName;
 
@@ -13,11 +13,11 @@ public class Node implements Serializable {
     private String building;
 
 
-    public long getNodeId() {
+    public int getNodeId() {
         return nodeId;
     }
 
-    public void setNodeId(long nodeId) {
+    public void setNodeId(int nodeId) {
         this.nodeId = nodeId;
     }
 
@@ -66,5 +66,18 @@ public class Node implements Serializable {
     @Override
     public int hashCode() {
         return (int) (nodeId ^ (nodeId >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "{Node: #" +
+                nodeName +
+                "; " +
+                region +
+                "; " +
+                street +
+                "; " +
+                building +
+                "}";
     }
 }

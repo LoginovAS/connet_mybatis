@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sbx.mappers.NodeMapper">
+    <resultMap id="nodeResult" type="org.sbx.entity.Node">
+        <id property="nodeId" column="node_id" />
+        <result property="nodeName" column="node_name" />
+        <result property="region" column="region" />
+        <result property="street" column="street" />
+        <result property="building" column="building" />
+    </resultMap>
+    <select id="getNodeById" resultType="org.sbx.entity.Node" parameterType="int" resultMap="nodeResult">
+        SELECT * FROM nodes WHERE node_id = #{id}
+    </select>
+    <select id="getAllNodes" resultType="java.util.List" resultMap="nodeResult">
+        SELECT * FROM nodes;
+    </select>
+    <insert id="insertNode" parameterType="org.sbx.entity.Node" keyProperty="nodeId" useGeneratedKeys="true">
+        INSERT INTO nodes (node_name, region, street, building) VALUES (#{nodeName}, #{region}, #{street}, #{building})
+    </insert>
+    <update id="updateNode" parameterType="org.sbx.entity.Node">
+        UPDATE nodes SET node_name = #{nodeName}, region = #{region}, street = #{street}, building = #{building}
+    </update>
+    <delete id="deleteNode" parameterType="java.lang.Integer">
+        DELETE FROM nodes WHERE node_id = #{nodeId}
+    </delete>
+</mapper>
