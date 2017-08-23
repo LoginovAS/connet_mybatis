@@ -10,4 +10,6 @@ import java.util.List;
 public interface NodeService {
     List<Node> getAllNodes();
     Node getNodeById(int id);
+    void createNode(Node node);
+    void updateNode(Node node);
 }

@@ -24,4 +24,14 @@ public class NodeServiceImpl implements NodeService {
     public Node getNodeById(int id) {
         return mapper.getNodeById(id);
     }
+
+    @Override
+    public void createNode(Node node) {
+        mapper.insertNode(node);
+    }
+
+    @Override
+    public void updateNode(Node node) {
+        mapper.updateNode(node);
+    }
 }
