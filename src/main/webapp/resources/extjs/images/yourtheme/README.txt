@@ -1,0 +1,2 @@
+2010-03-16 jwr:
+The image directory, "yourtheme", is an exact copy of the "default" image directory. Remember to update your file paths in "extjs.css/yourtheme.extjs.css" if you make changes or add your own custom extjs.images for your custom theme.

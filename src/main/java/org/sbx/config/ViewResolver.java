@@ -3,9 +3,6 @@ package org.sbx.config;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-/**
- * Created by loginov_a_s on 23.08.2017.
- */
 public class ViewResolver extends InternalResourceViewResolver {
 
     public ViewResolver() {

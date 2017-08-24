@@ -2,6 +2,7 @@ package org.sbx.config;
 
 import org.sbx.service.impl.NodeServiceImpl;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
@@ -28,5 +29,9 @@ public class ConnetWebAppInitializer extends AbstractAnnotationConfigDispatcherS
         characterEncodingFilter.setEncoding("UTF-8");
         characterEncodingFilter.setForceEncoding(true);
         return new Filter[]{ characterEncodingFilter };
+    }
+
+    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 }

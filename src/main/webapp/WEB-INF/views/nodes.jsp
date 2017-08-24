@@ -2,7 +2,8 @@
 <!doctype html>
 <html>
 <head>
-	<title>Users</title>
+	<title>Nodes</title>
+	<script type="text/javascript" src="ext-all.js"></script>
 </head>
 <body>
 	<h1>Node List:</h1>

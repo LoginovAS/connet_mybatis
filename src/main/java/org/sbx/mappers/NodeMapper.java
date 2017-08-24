@@ -4,9 +4,6 @@ import org.sbx.entity.Node;
 
 import java.util.List;
 
-/**
- * Created by loginov_a_s on 23.08.2017.
- */
 public interface NodeMapper {
 
     Node getNodeById(int id);
