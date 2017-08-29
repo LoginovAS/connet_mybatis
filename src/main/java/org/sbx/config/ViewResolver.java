@@ -15,7 +15,7 @@ public class ViewResolver extends InternalResourceViewResolver {
 
     protected AbstractUrlBasedView buildView(String viewName) throws Exception {
         if (viewName.isEmpty() || viewName.endsWith("/")) {
-            viewName += "index";
+            viewName += "nodes";
         }
 
         return super.buildView(viewName);

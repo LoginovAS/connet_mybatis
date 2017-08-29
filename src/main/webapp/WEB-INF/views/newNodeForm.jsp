@@ -10,8 +10,21 @@
     </head>
     <body>
     <c:url var="addAction" value="/node/add"></c:url>
-    <form:form var="${addAction}" commandName="node" method="POST">
+    <form:form action="${addAction}" commandName="node" method="POST">
     <table>
+        <c:if test="${!empty node.nodeName}">
+        <tr>
+            <td>
+                <form:label path="nodeId">
+                    <spring:message text="ID"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="nodeId" readonly="true" size="8"  disabled="true" />
+                <form:hidden path="nodeId" />
+            </td>
+        </tr>
+        </c:if>
         <tr>
             <td>
                 <form:label path="nodeName">
@@ -54,7 +67,12 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="<spring:message text='Create' />" />
+                <c:if test="${empty node.nodeName}">
+                    <input type="submit" value="<spring:message text='Create' />" />
+                </c:if>
+                <c:if test="${!empty node.nodeName}">
+                    <input type="submit" value="<spring:message text='Update' />" />
+                </c:if>
             </td>
         </tr>
     </table>

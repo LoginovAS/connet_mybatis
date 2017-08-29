@@ -17,8 +17,8 @@ public class AppController {
     private NodeService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public void index(Model model) {
-        model.addAttribute("welcome", "Welcome!");
+    public String index(Model model) {
+        return "redirect:/nodes";
     }
 
     @RequestMapping(value = "/nodes", method = RequestMethod.GET)
@@ -48,7 +48,20 @@ public class AppController {
             service.updateNode(node);
         }
 
-        return "nodes";
+        return "redirect:/nodes";
+    }
+
+    @RequestMapping(value = "/edit/{id}")
+    public String nodeEdit(@PathVariable("id") int id, Model model) {
+        model.addAttribute("node", service.getNodeById(id));
+        return "newNodeForm";
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String deleteNode(@PathVariable("id") int id, Model model) {
+        service.deleteNode(id);
+
+        return "redirect:/nodes";
     }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)

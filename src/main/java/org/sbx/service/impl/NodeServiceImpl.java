@@ -34,4 +34,9 @@ public class NodeServiceImpl implements NodeService {
     public void updateNode(Node node) {
         mapper.updateNode(node);
     }
+
+    @Override
+    public void deleteNode(int id) {
+        mapper.deleteNode(id);
+    }
 }

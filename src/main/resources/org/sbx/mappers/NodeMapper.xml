@@ -20,7 +20,7 @@
         INSERT INTO nodes (node_name, region, street, building) VALUES (#{nodeName}, #{region}, #{street}, #{building})
     </insert>
     <update id="updateNode" parameterType="org.sbx.entity.Node">
-        UPDATE nodes SET node_name = #{nodeName}, region = #{region}, street = #{street}, building = #{building}
+        UPDATE nodes SET node_name = #{nodeName}, region = #{region}, street = #{street}, building = #{building} WHERE node_id = #{nodeId}
     </update>
     <delete id="deleteNode" parameterType="java.lang.Integer">
         DELETE FROM nodes WHERE node_id = #{nodeId}

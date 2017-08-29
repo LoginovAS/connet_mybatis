@@ -14,8 +14,8 @@
 			    <td>${node.region}</td>
 			    <td>${node.street}</td>
 			    <td>${node.building}</td>
-			    <td><a href="/edit/${node.nodeId}">Edit</td>
-			    <td><a href="/delete/${node.nodeId}">Delete</td>
+			    <td><a href="edit/${node.nodeId}">Edit</td>
+			    <td><a href="delete/${node.nodeId}">Delete</td>
 			</tr>
 		</c:forEach>
 	</table>

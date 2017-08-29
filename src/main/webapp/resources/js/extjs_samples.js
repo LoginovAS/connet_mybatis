@@ -1,25 +1,39 @@
 Ext.onReady(function(){
 
-    var jsonData;
+    var data = [];
 
     Ext.Ajax.request({
         url: 'jnodes',
         success: function(response) {
-            jsonData = response.responseText;
-        }
+            var res = Ext.decode(response.responseText, true);
+            if(res !== null &&  typeof (res) !==  'undefined'){
+                // loop through the data
+                Ext.each(res.data, function(obj){
+                    //add the records to the array
+                    data.push({
+                        id: obj.nodeId,
+                        name: obj.nodeName,
+                        region: obj.region,
+                        street: obj.street,
+                        building: obj.building
+                    })
+                });
+                //update the store with the data that we got
+//                nodeStore.loadData(data);
+            }
+        },
+        failure : function(r){}
     });
 
     var nodeStore = new Ext.data.Store ({
-        model: {
-            extend: 'Ext.data.Model',
-            fields: [ 'nodeName', 'region', 'street', 'building' ]
-        },
-        data: jsonData
+            fields: [ 'nodeName', 'region', 'street', 'building' ],
+            data: data,
+            paging: false
     });
 
     Ext.create({
         xtype: 'grid',
-        renderTo: Ext.getBody(),
+        renderTo: 'testGridPanel',
         store: nodeStore,
         width: 600,
         height: 200,
